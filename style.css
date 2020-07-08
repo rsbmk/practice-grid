@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.grid {
+  display: grid;
+  width: 90%;
+  margin: 20px auto;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "header header header"
+    "section section section"
+    "sidebar sidebar sidebar"
+    "widget1 widget1 widhet2"
+    "footer footer footer";
+}
+.header {
+  padding: 20px;
+  color: white;
+  grid-area: header;
+  border-radius: 5px;
+  text-align: center;
+  background-color: hsl(0, 0%, 41%);
+}
+.section {
+  padding: 5px;
+  grid-area: section;
+  background-color: hsl(193, 100%, 89%);
+}
+.sidebar {
+  display: flex;
+  color: white;
+  min-height: 100px;
+  grid-area: sidebar;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(55, 91%, 63%);
+}
+.widget1,
+.widget2 {
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(179, 100%, 32%);
+}
+.widget1 {
+  grid-area: widget1;
+}
+.footer {
+  color: white;
+  display: flex;
+  min-height: 80px;
+  grid-area: footer;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(29, 81%, 62%);
+}
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-areas:
+      "header header header"
+      "section section sidebar"
+      "section section sidebar"
+      "widget1 widget2 sidebar"
+      "footer footer footer";
+  }
+  .section {
+    line-height: 30px;
+    height: 50vh;
+  }
+  .widget1,
+  .widget2 {
+    height: 20vh;
+  }
+}
